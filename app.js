@@ -57,7 +57,6 @@ app.use(session({
 app.use(authenticated);
 app.use(putLatestProduct);
 
-app.use(morgan('combined'));
 
 app.use('/images', express.static(path.join(__dirname, './images')));
 app.use('/js', express.static(path.join(__dirname, './js')));
