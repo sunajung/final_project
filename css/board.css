@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+.board-section {
+    background-color:rgba(0,0,0,0);
+    margin: 0 auto;
+    width: 950px;
+    min-width: 700px;
+    height:750px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.bheader {
+    width: 100%;
+    text-align: center;
+}
+.bheader> h3 {
+    width: 100px;
+    padding-top: 60px;
+	font-family: 'Sunflower', sans-serif;
+    background-color: white;
+    border-bottom: 3px solid rgb(230, 214, 197);
+	color: rgb(59, 57, 57);
+	display: inline-block;
+	font-size: 25px;
+}
+
+.board-table{
+    padding-top:30px;
+    padding-left:50px;
+    width:850px;
+    
+}
+
+.board-table tr:first-child td {
+    border-bottom: 3px solid  rgb(230, 214, 197);
+    border-top: 0;
+}
+.board-table tr td {
+    border-bottom: 2px solid  rgb(230, 214, 197);
+    height: 25px;
+}
+.board-table tr td a {
+    margin-left: 15px;
+    text-decoration:none;
+    color:black;
+}
+.board-table tr:first-child{
+    text-align:center;
+}
+.board-table tr td:first-child {
+    width:10%;
+}
+
+.board-table tr td:nth-child(3) {
+    width: 10%;
+}
+.board-table tr td:nth-child(4) {
+    width: 10%;
+}
+.board-table tr td:last-child {
+    width: 10%;
+}
+
+.page-wrapper {
+    padding-top: 20px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.page-button {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border : none;
+    color: rgb(59, 57, 57);
+    cursor:pointer;
+}
+
+.board-write{
+    cursor:pointer;
+    color: white;
+    background-color: rosybrown;
+    border:none;
+    margin-top:10px;
+    margin-left: 770px;
+    height: 30px;
+    width: 80px;    
+}
+
+.board-search-area {
+    border: 2px solid rgb(173, 171, 171);
+    margin: 10px auto;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 32px;
+    position: relative;
+}
+
+
+.board-search-area > * {
+    position: absolute;
+}
+
+.board-search-area > .board-search-text {
+    width: 255px;
+    height: 30px;
+    padding-left: 5px;
+    border: 0;
+    margin: 0 auto;
+    padding: 0 0 0 0;
+}
+
+.board-search-button {
+    border: 0;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    right: 0px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.board-selected-page {
+    font-weight: bold;
+    color: rgb(173, 171, 171);
+}

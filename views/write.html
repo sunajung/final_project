@@ -1,0 +1,80 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/write.css" rel="stylesheet">
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+{% endblock %}
+{% block content %}
+<section class="write-section">
+    <form class="write-form" name="write" method="post" action="/write/{{board.id}}{% if post %}/{{post.pid}}{% endif %}">
+        <div class="write-header">
+            <h3>{{board.name}}</h3>
+        </div>
+        <div class="write-main-section">
+            <input name="title" class="write-title" placeholder="제목을 입력해 주세요."
+                   {% if post %}
+                   value="{{post.title}}"
+                   {% endif %} />
+            <textarea name="content" id="summernote" rows="10" cols="100">
+                {% if post %}
+                    {{post.content}}
+                {% endif %}
+            </textarea>
+        </div>
+        <div class="write-footer">
+            <button type="submit">글쓰기</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 360,
+            width: 720,
+            placeholder: '내용을 입력해 주세요.',
+            lang: 'ko-KR',
+            callbacks: {	//여기 부분이 이미지를 첨부하는 부분
+                onImageUpload: function (files) {
+                    uploadSummernoteImageFile(files[0], this);
+                },
+                onPaste: function (e) {
+                    var clipboardData = e.originalEvent.clipboardData;
+                    if (clipboardData && clipboardData.items && clipboardData.items.length) {
+                        var item = clipboardData.items[0];
+                        if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    function uploadSummernoteImageFile(file, editor) {
+        data = new FormData();
+        data.append("file", file);
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "/imageUpload",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
+                //항상 업로드된 파일의 url이 있어야 한다.
+                $(editor).summernote('insertImage', data.url);
+            }
+        });
+    }
+</script>
+<script type="text/javascript" src="/js/write.js"></script>
+{% endblock %}
+
+

@@ -1,0 +1,73 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/shoppingCart.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="shoppingCart-section">
+    <div class=shoppingCart-header>
+        <h3> Shopping Cart </h3>
+    </div>
+    <div class="shoppingCart-items">
+        <table class="shoppingCart-items-table">
+            <tr>
+                <td>
+                    일반 상품
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <a>이미지</a>
+                </td>
+                <td>
+                    <a>상품 이름</a>
+                </td>
+                <td>
+                    <a>가격</a>
+                </td>
+                <td></td>
+            </tr>
+            {% set totalPrice = 0 %}
+            {% for item in items%}
+            {% set totalPrice = totalPrice + item.price %}
+            <tr>
+                <td class="shoppingCart-item-img">
+                    <img src="/images/product/{{item.pid}}.jpg" />
+                </td>
+                <td>
+                    <a class="item-name">{{item.name}}</a>
+                </td>
+                <td>
+                    <a class="item-price">￦{{item.priceStr}}</a>
+                </td>
+                <td>
+                    <button class="buy-item" value="{{item.pid}}">구매</button>
+                    <button class="delete-item">삭제</button>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>[ 기본 배송 ]</td>
+                <td style="text-align:right">
+                    <a>총액</a>
+                </td>
+                <td>
+                    <a class="item-price-all">￦{{totalPrice}}</a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <button class="buy-all">모두 구매</button>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/js/shoppingCart.js"></script>
+{% endblock %}
+
+

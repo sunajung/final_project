@@ -1,0 +1,81 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/board.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="board-section">
+    <div class=bheader>
+        <h3> {{board.name}} </h3>
+    </div>
+    <table class="board-table">
+        <tr>
+            <td>
+                <a>글 번호</a>
+            </td>
+            <td>
+                <a>제목</a>
+            </td>
+            <td>
+                <a>작성자</a>
+            </td>
+            <td>
+                <a>작성일</a>
+            </td>
+            <td>
+                <a>조회수</a>
+            </td>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>
+                <a>{{post.idPerBoard}}</a>
+            </td>
+            <td>
+                <a href="/post/{{post.pid}}/{{pageNumber}}">{{post.title}}</a>
+            </td>
+            <td>
+                <a>{{post.writer}}</a>
+            </td>
+            <td>
+                <a>{{post.date}}</a>
+            </td>
+            <td>
+                <a>{{post.view}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+    {% if isAuthenticated %}
+        {% if board.id == 1 or level > 1%}
+        <button class="board-write" onclick="location.href='/write/{{board.id}}'">글쓰기</button>
+        {% endif %}
+    {% endif %}
+        <div class="page-wrapper">
+            {% if searchItem != "" %}
+                {% set searchQuery = "?search=" + searchItem %}
+            {% endif %}
+            {% for page in pages %}
+                {% if page == pageNumber %}
+                   {% set selected = ' selected-page' %}
+                {% else %}
+                   {% set selected = '' %}
+                {% endif %}
+            <button class="page-button{{selected}}" onclick="location.href='/board/{{board.id}}/{{page}}{{searchQuery}}'">{{page}}</button>
+            {% endfor %}
+        </div>
+    <form name="board-search-item" class="board-search-area" method="get">
+        <input class="board-search-text" type="text" name="search" />
+        <button type="submit" class="board-search-button"><img src="/images/search1.JPG" width="30" height="30"></button>
+    </form>  
+</section>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/js/board.js"></script>
+{% endblock %}
+
+

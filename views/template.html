@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 실습</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/second_subject.css" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/"> <img src="/images/logo.png" width="180" height="72"></a>
+            <div class="left">
+                <div class="item"><button class="button community-button">커뮤니티</button></div>
+                <div class="item"><button class="button musicinfo-button" onclick="location.href='/productBoard'">상품 판매</button></div>
+                <div class="item"><button class="button showinfo-button">모델 소식</button></div>
+                <form name="search-item" class="search-area" action="/productBoard/1" method="GET">
+                    <input class="search-text" name="search" type="text" />
+                    <button type="submit" class="search-button"><img src="/images/search1.JPG" width="30" height="30"></button>
+                </form>
+            </div>
+            <div class="right" style="margin: auto">
+                {% if isAuthenticated %}
+                <div class="item"><a class="header-greeting">안녕하세요 {{user}}님</a></div>
+                <div class="item"><button class="button" onclick="location.href='/login/logout'">로그아웃</button></div>
+                <div class="item">
+                    <button class="button" onclick="location.href='/shoppingCart'">
+                        <img src="/images/cart1.JPG" width="30" height="30" onmouseover="this.src='/images/cart2.JPG'"
+                             onmouseout="this.src='/images/cart1.JPG'">
+                    </button>
+                </div>
+                <div class="item">
+                    <button class="button" onclick="location.href='/mypage'">
+                        <img src="/images/mypage.png" width="30" height="30" onmouseover="this.src='/images/mypageHover.png'"
+                             onmouseout="this.src='/images/mypage.png'">
+                    </button>
+                </div>
+                {% else %}
+                <div class="item"><button class="button" onclick="location.href='/login'">로그인</button></div>
+                <div class="item"><button class="button" onclick="location.href='/regist'">회원가입</button></div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <div id="communityMenu" class="hidden headerMenu">
+        <div class="community">
+            <div class="item"><button class="buttonside" onclick="location.href='/board/2/1'">주요 공지</button></div>
+            <div class="item"><button class="buttonside" onclick="location.href='/board/3/1'">이벤트</button></div>
+            <div class="item"><button class="buttonside" onclick="location.href='/board/1/1'">소통 공간</button></div>
+        </div>
+    </div>
+
+    <div id="showinfoMenu" class="hidden headerMenu">
+        <div class="showinfo">
+            <div class="item"><button class="buttonside" onclick="location.href='/introduceModel'">모델 소개</button></div>
+            <div class="item"><button class="buttonside" onclick="location.href='/board/5/1'">일기</button></div>
+        </div>
+    </div>
+
+
+    <div class="dummy"></div>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <br>
+        <br>
+        <p>웹 응용 프로그래밍 Term Project</p>
+        <p>ⓒ 2020. suna jung All Rights Reserved.</p>
+    </footer>
+
+    {% if isAuthenticated %}
+    <input type="hidden" class="isLogin" value="true" />
+    {% endif %}
+    <script type="text/javascript" src="/js/common.js"></script>
+    {% block js %}
+    {% endblock %}
+</body>
+</html>

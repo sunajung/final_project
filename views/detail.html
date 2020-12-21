@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/detail.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="detail-section">
+    <div class="detail-main-image">
+        <img src="/images/product/{{item.pid}}.jpg" />
+    </div>
+    <div class="detail-information">
+        <div class="detail-information-title">
+            {{item.name}}
+            {% if item.titlePrefix %}
+            <br />{{item.titlePrefix}}
+            {% endif %}
+        </div>
+        <div class="detail-information-price">
+            <p>Price ￦{{item.priceStr}} </p>
+        </div>
+        <div class="detail-information-footer">
+            <button class="shopping-cart" value="{{item.pid}}">장바구니 담기</button>
+            <button class="buy buy-item" value="{{item.pid}}">바로 구매</button>
+        </div>
+    </div>
+    <div class = "detail-header">
+        <h3> 상세설명 </h3>
+    </div>
+    <div class="detail-information-detail">
+        {{item.detail|safe}}
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/js/detail.js"></script>
+{% endblock %}
+
+

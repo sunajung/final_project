@@ -1,0 +1,33 @@
+﻿{% extends 'template.html' %}
+
+{% block css %}
+<link href="css/login.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="login-section">
+    <div class="login-container-dummy"></div>
+
+    <div class="login-container">
+        <div class="login-container-header">
+            <h3>MEMBER LOGIN</h3>
+        </div>
+        <form name="login" class="login-container-section" method="post">
+            <input name="id" type="text" placeholder="아이디" />
+            <input name="password" placeholder="비밀번호" type="password" />
+            <div id="error-message" class="error">{{errorMessage}}</div>
+            <button class= "loginbtn" type="submit">로그인</button>
+        </form>
+        <div class="login-container-footer">
+            <button class="loginbutton" onclick="location.href='/regist'">회원가입</button>
+            <a href=""><button type="button" class="loginbutton" onclick="alert('현재 준비중인 기능입니다. ID/PW찾기는 jungsuna99@gmail.com으로 문의 주세요.');return false;">ID 찾기</button></a>
+            <a href=""><button type="button" class="loginbutton" onclick="alert('현재 준비중인 기능입니다. ID/PW찾기는 jungsuna99@gmail.com으로 문의 주세요.'); return false;">PW 찾기</button></a> 
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+

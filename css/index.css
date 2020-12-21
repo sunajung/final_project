@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR:wght@300&display=swap');
+
+.sales-section{
+    background-color:rgba(248,236,222,0);
+    margin:0 auto;
+    padding:0 0 0 0;
+    min-width:700px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h3{
+    padding-top:20px;
+    margin:0;
+}
+.new-product-contanier {
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.new-product-contanier > div {
+    border-bottom: 1px solid rgb(202, 197, 197);
+}
+
+.new-product-contanier > h3 {
+    margin: 100px 0 15px 0;
+    width:100%;
+    text-align: center;
+}
+
+.new-product-content {
+    display: inline-block;
+    width: 342px;
+    height: 484.5px;
+    margin: 30px 30px 30px 30px;
+    position: relative;
+}
+
+.new-product-title{
+    width:100%;
+    text-align:center;
+}
+
+.new-product-content:hover{
+    cursor:pointer;
+}
+
+.new-product-content > * {
+    position: absolute;
+}
+
+.new-product-content > img {
+    z-index: -99;
+    width: 100%;
+    height: 456px;
+}
+
+.new-product-content > .new-product-title {
+    padding-top:5px;
+    margin:0px 5px;
+    bottom: 0px;
+    height: 25px;
+    overflow:hidden;
+}
+
+.new-product-content > .new-product-detail {
+    word-break:keep-all;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+    height: 100%;
+    color: rgba(0,0,0,0);
+    text-align: center;
+}
+.new-product-content > .new-product-detail > p:first-child {
+    margin-top:60px;
+}
+.new-product-content > .new-product-detail:hover {
+    transition:0.3s;
+    color:white;
+}
+
+
+.best-product-contanier {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.best-product-contanier > div {
+    border-bottom: 1px solid rgb(202, 197, 197);
+}
+
+.best-product-contanier > h3 {
+    width:100%;
+    text-align: center;
+    margin: 40px 0 15px 0;
+}
+
+.best-product-content {
+    display: inline-block;
+    width: 295px;
+    height: 410px;
+    margin: 10px 10px 10px 10px;
+    position: relative;
+}
+
+.best-product-content:hover{
+    cursor:pointer;
+}
+
+.best-product-title{
+    width:100%;
+    text-align:center;
+}
+
+.best-product-content > * {
+    position: absolute;
+}
+
+.best-product-content > img {
+    z-index: -99;
+    width: 100%;
+    height: 380px;
+}
+
+.best-product-content > .best-product-title {
+    padding-top: 5px;
+    margin: 0px 5px;
+    bottom: 0px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.best-product-content > .best-product-detail {
+    word-break: keep-all;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+    height: 100%;
+    color: rgba(0,0,0,0);
+    text-align: center;
+}
+
+.best-product-content > .best-product-detail > p:first-child {
+    margin-top: 60px;
+}
+
+.best-product-content > .best-product-detail:hover {
+    transition: 0.3s;
+    color: white;
+}
+
+.backcontainer {
+    display: grid;
+    width:150px;
+    margin: 0 auto;
+    padding-top:360px;
+    bottom: 30px;
+    grid-template: repeat(1, 20px) / repeat(3, 50px);
+}
+.backcontainer > * {
+    width:15px;
+    margin: 0 auto;
+}
+
+.banner-section {
+    cursor: pointer;
+    position: relative;
+    min-width: 1120px;
+    width: 100%;
+    height: 420px;
+    left: 0px;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.banner-bg1 {
+    background-image: url("../images/add1.jpg");
+    transition:0.5s;
+}
+.banner-bg2 {
+    background-image: url("../images/add2.jpg");
+    transition: 0.5s;
+}
+.banner-bg3 {
+    background-image: url("../images/add3.jpg");
+    transition: 0.5s;
+}
+
+.banner-section > div > div {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-section > div > div > div {
+    z-index:999;
+    background-color:rgb(255,255,255);
+    margin-top:15px;
+    border: 1px solid rgb(112, 110, 110);
+    box-shadow: 1px 1px #999;
+    width: 20px;
+    height: 5px;
+    cursor:pointer;
+
+}
+
+.banner-section > div > div > div:hover {
+    background-color: #999;
+}
+
+
+.banner-section > div > div > div.clicked{
+    background-color: #888;
+}

@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/login.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/js/index.js"></script>
+{% endblock %}
+
+

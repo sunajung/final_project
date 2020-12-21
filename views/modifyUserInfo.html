@@ -1,0 +1,57 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="css/regist.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="regist-section">
+    <div class="regist-container">
+        <h3>회원정보 수정</h3>
+        <form name="regist" class="regist-container-form" method="post">
+            <table>
+                <tr class="regist-normal-content">
+                    <td>아이디<a class="regist-mandatory">*</a></td>
+                    <td><input class="regist-normal-input" name="id" type="text"readonly value="{{userInfo.id}}" /></td>
+                </tr>
+                <tr class="regist-normal-content">
+                    <td>비밀번호<a class="regist-mandatory">*</a></td>
+                    <td><input class="regist-normal-input" name="password" type="password" /><a class="password-noti"></a></td>
+                </tr>
+                <tr class="regist-normal-content">
+                    <td>비밀번호 확인<a class="regist-mandatory">*</a></td>
+                    <td><input class="regist-normal-input" name="passwordCheck" type="password" /><a class="password-check-noti"></a></td>
+                </tr>
+                <tr class="regist-normal-content">
+                    <td>이름<a class="regist-mandatory">*</a></td>
+                    <td><input class="regist-normal-input" name="name" type="text" readonly value="{{userInfo.name}}"/></td>
+                </tr>
+                <tr class="regist-normal-content">
+                    <td>핸드폰 번호</td>
+                    <td>
+                    <select class="phone" name="phone1">
+                        <option {% if phone1 == "010" %}selected{% endif%}>010</option>
+                        <option {% if phone1 == "011" %}selected{% endif%}>011</option>
+                        <option {% if phone1 == "016" %}selected{% endif%}>016</option>
+                    </select>
+                    <input class="phone " name="phone2" type="number" maxlength="4" value="{{userInfo.phone2}}" oninput="maxLengthCheck(this)" />
+                    <input class="phone " name="phone3" type="number" maxlength="4" value="{{userInfo.phone3}}" oninput="maxLengthCheck(this)" /></td>
+                </tr>
+                <tr class="regist-address-content">
+                    <td>주소</td>
+                    <td>
+                    <input class="regist-normal-input" name="address" type="text" value="{{userInfo.address}}"/> <button class="address-find" type="button">주소 찾기</button> 
+                    <input class="regist-normal-input" name="addressDetail" type="text" value="{{userInfo.addressDetail}}"/></td>
+                </tr>
+            </table>
+            <button class="regist-submit" type="submit">수정</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/js/modifyUserInfo.js"></script>
+{% endblock %}
+
+

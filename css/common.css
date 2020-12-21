@@ -1,0 +1,249 @@
+
+header {
+    font-family: Jua;
+    min-width: 1300px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    margin: 0 0 5px 0;
+    min-height: 10px;
+    border-bottom: 2px solid gainsboro;
+}
+
+.top-wrapper{
+	display: inline-block;
+}
+
+.nav,
+.left,
+.right {
+	position: absolute;
+	top: 0;
+	display: flex;
+	height: 70px;
+	align-items: center;
+	background-color: white;
+}
+
+.nav {
+	width: 100%;
+}
+
+.left {
+	left: 200px;
+	align-items: flex-end;
+}
+
+.right {
+	width: 500px;
+	right: 0px;
+	align-items: flex-end;
+}
+
+.search-area{
+	border: 2px solid black;
+	margin:0 auto;
+	margin-bottom: 10px;
+	width:200px;
+	height:32px;
+	position:relative;
+}
+
+
+.search-area>*{
+	position:absolute;
+}
+
+.search-area > .search-text{
+	width:155px;
+	height:30px;
+	padding-left:5px;
+	border: 0;
+	margin:0 auto;
+	padding: 0 0 0 0;
+}
+
+.search-button{
+	border:0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	right:0px;
+	height:30px;
+	cursor: pointer;
+}
+
+.header-greeting {
+    display:inline-block;
+    font-size: 22.5px;
+    margin:auto;
+    margin:11px 0px;
+    height:30px;
+}
+
+.button {
+    width: 100px;
+    font-family: Jua;
+    background-color: white;
+    border: none;
+    outline: 0;
+    color: rgb(59, 57, 57);
+    padding: 5px 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 22.5px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+	color: rgb(204,153,153);
+	border-bottom: 3px solid rgb(204,153,153);
+}
+
+.button_h {
+	font-family: Jua;
+	background-color: white;
+	border: none;
+	outline: 0;
+	color: rgb(73, 65, 65);
+	padding: 5px 0;
+	text-align: center;
+	font-size: 22.5px;
+	margin: 10px 0 0 5px;
+}
+
+.button_d {
+	width: 160px;
+	font-family: Jua;
+	background-color: white;
+	border: none;
+	outline: 0;
+	color: rgb(59, 57, 57);
+	padding: 5px 0;
+	text-align: center;
+	font-size: 18px;
+	margin: 4px;
+}
+
+.login{
+	font-family: Jua;
+	color: white;
+	background-color: rgba(0,0,0,0.4);
+	border: none;
+	cursor: pointer;
+}
+
+.loginbutton {
+	width: 100px;
+	font-family: Jua;
+	border: none;
+	background-color: white;
+	outline: 0;
+	color: rgb(59, 57, 57);
+	padding: 11px 0 0 0;
+	text-align: center;
+	display: inline-block;
+	font-size: 19px;
+	margin: 4px;
+	cursor: pointer;
+}
+
+
+.buttonside {
+	width: 100px;
+	font-family: Jua;
+	background-color: white;
+	border: none;
+	outline: 0;
+	color: rgb(59, 57, 57);
+	padding: 12.5px 0 0 0;
+	text-align: center;
+	display: inline-block;
+	font-size: 19px;
+	margin: 4px;
+	cursor: pointer;
+}
+
+.buttonside:hover {
+	background-color: rgb(255,204,204);
+}
+
+.add {
+	z-index: -10;
+}
+
+.items {
+	margin: 10px;
+	width: 100px;
+	height: 100px;
+	background-color: orange;
+
+}
+aside {
+    position: fixed;
+    padding-bottom: 20px;
+    padding-left: 14px;
+	border: 3px solid rgb(190, 188, 186);
+    display: inline;
+    width: 130px;
+    top: 100px;
+}
+.like-show>div:not(.item){
+	width:100px;
+	display:inline-block;
+}
+.like-show>div>img{
+	display:block;
+}
+.like-show>div>p{
+	width:100px;
+	display:inline-block;
+	margin: 0 0 0 0;
+}
+body{
+	min-width:1500px;
+	margin : 0 0 0 0;
+	padding: 0 0 0 0;
+}
+footer{
+	margin : 100px 0 0 0;
+	padding: 0 0 0 0;
+	width:100%;
+	height:200px;
+	background-color:rgb(248,236,222);
+	text-align:center;
+}
+footer>p{
+	margin-left:10px;
+	margin-bottom : 3px;
+	margin-top : 3px;
+}
+
+.hover-gray:hover {
+    background-color: rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+
+.dummy {
+    width: 100px;
+    height: 70px;
+}
+
+
+
+/* input type number���� ȭ��ǥ ���ֱ� https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* textarea ũ�� ���� ����*/
+textarea{
+    resize:none;
+}

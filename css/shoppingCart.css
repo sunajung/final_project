@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Noto+Serif+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+.shoppingCart-section {
+    background-color: rgba(0,0,0,0);
+    margin: 0 auto;
+    width: 950px;
+    min-width: 700px;
+    padding-bottom: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.shoppingCart-items-table tr:first-child td, .shoppingCart-items-table tr:nth-child(2) td{
+    height: 10px;
+    padding: 10px;
+}
+
+.shoppingCart-items-table tr:first-child{
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.03);
+}
+
+.shoppingCart-item-img img {
+    height: 100%;
+}
+
+.shoppingCart-item a {
+    display:inline-block;
+    height: 15px;
+    padding-bottom:30px;
+}
+
+.shoppingCart-items-table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+.shoppingCart-items-table tr {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.shoppingCart-items-table  tr:last-child{
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    background-color:rgba(0,0,0,0.03);
+}
+.shoppingCart-items-table tr:last-child td{
+    height: 30px;
+    padding: 20px;
+}
+
+.shoppingCart-items-table td {
+    height: 100px;
+}
+.shoppingCart-items-table td button{
+    display:block;
+}
+.shoppingCart-items-table {
+    width:100%;
+}
+
+.buy-all{
+    float:right;
+    cursor:pointer;
+    color: white;
+    border: 2px solid tan;
+    background-color: rosybrown;
+    border:none;
+    height: 30px;
+    width: 80px;
+    margin-top:20px;
+}
+
+.buy-item, .delete-item{
+    cursor:pointer;
+    color: white;
+    border: 2px solid tan;
+    background-color: rosybrown;
+    border:none;
+    height: 25px;
+    width: 50px;
+    margin-bottom:3px;
+}
+
+.shoppingCart-header {
+    width: 100%;
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.shoppingCart-header > h3 {
+    font-family: 'Sunflower', sans-serif;
+    background-color: white;
+    border-bottom: 3px solid rgb(230, 214, 197);
+    color: rgb(59, 57, 57);
+    display: inline-block;
+    font-size: 25px;
+}
+
+

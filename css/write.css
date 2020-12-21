@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+.write-section {
+    margin: 0 auto;
+    width: 950px;
+    min-width: 700px;
+    height: 650px;
+    padding-left:90px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.write-header {
+    width: 720px;
+    height: 150px;
+    text-align:center;
+}
+.write-header h3{
+    font-size: 25px;
+    width: 100%;
+    padding-top:60px;
+    margin:0;
+    height: 70px;
+    font-family: 'Sunflower', sans-serif;
+    background-color: white;
+    border-bottom: 3px solid rgb(230, 214, 197);
+}
+.write-footer {
+    width: 720px;
+    margin-top: 20px;
+    height: 150px;
+    align-content: flex-end;
+}
+.write-footer button {
+    float:right;
+    cursor:pointer;
+    color: white;
+    background-color: rosybrown;
+    border:none;
+    margin-left: 20px;
+    height: 30px;
+    width: 80px;
+}
+.write-main-section > .write-title{
+    width:715px;
+    margin-bottom:10px;
+}
+
+p{
+    margin:5px 0;
+}

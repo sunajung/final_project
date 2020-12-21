@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR:wght@300&display=swap');
+
+.regist-section {
+    background-color: rgba(0,0,0,0);
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    width: 1100px;
+    min-width: 700px;
+    height: 100%;
+}
+
+.regist-container {
+    background-color: rgba(248,236,222,0);
+    padding-top: 100px;
+    padding-left:30px;
+    margin: auto;
+    width: 800px;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.duplicate-check, .address-find, .regist-submit{
+    cursor:pointer;
+    color: white;
+    background-color: rosybrown;
+    border:none;
+    margin-left: 20px;
+    height: 30px;
+    width: 80px;
+}
+
+.regist-container >h3 {
+	font-family: Jua;
+	background-color: white;
+	border-bottom: 3px solid rgb(248,236,222);
+	color: rgb(59, 57, 57);
+	padding: 14px 0 20px 0;
+	text-align: center;
+	display: inline-block;
+	font-size: 25px;
+}
+
+.regist-container > form tr.regist-normal-content {
+    height: 80px;
+}
+.regist-container > form tr.regist-address-content {
+    height: 150px;
+}
+.regist-container > form tr.regist-address-content input{
+    margin:5px 0;
+}
+.regist-container > form tr td:first-child {
+    width:140px;
+}
+.regist-container > form > div  * {
+    margin: 20px 20px;
+}
+
+    .regist-container > form .regist-normal-input{
+        height: 40px;
+        width: 300px;
+    }
+
+.regist-container > form .duplicate-check,
+.regist-container > form .address-find {
+    margin-left: 20px;
+    height: 30px;
+    width: 80px;
+}
+
+.regist-container > form .phone {
+    border:1px solid black;
+    border-style:outset;
+    padding:0px;
+    height: 40px;
+    width: 100px;
+    margin-right:5px;
+}
+
+.regist-container > form > div > .regist-submit {
+    float: right;
+    margin-right: 40px;
+}
+
+.regist-mandatory{
+    margin-left:4px;
+    font-size:9px;
+    color:red;
+}
+
+.regist-container .regist-agree {
+    background-color: rgba(0,0,0,0.03);
+    height: 300px;
+    width: 650px;
+    padding:30px;
+    margin-bottom:20px;
+}
+.regist-container .regist-agree * {
+    margin: 0;
+}
+.regist-container .regist-agree p {
+    margin-bottom: 30px;
+}
+
+.regist-container .regist-agree textarea {
+    height:200px;
+    width:600px;
+    display:block;
+}
+
+.regist-container .password-noti,
+.regist-container .password-check-noti{
+    margin-left: 4px;
+    font-size: 9px;
+}
+.noti-red {
+    color: red;
+}
+.noti-green {
+    color: green;
+}
+
+.check{
+    padding-right:5px;
+}

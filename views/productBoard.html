@@ -1,0 +1,52 @@
+﻿{% extends 'template.html' %}
+
+{% block css %}
+<link href="/css/productBoard.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="board-section">
+    <div class=bheader>
+        <h3> {{board.name}} </h3>
+    </div>
+
+    <div class="product-contanier">
+        {% for item in products %}
+        <div class="product-content hover-gray" onclick="location.href='/detail/{{item.pid}}'">
+            <img src="/images/product/{{item.pid}}.jpg" />
+            <div class="product-title">{{item.name}}</div>
+            <div class="product-detail">
+                <p>{{item.title}}</p>
+                <p>{{item.titlePrefix}}</p>
+                <p>￦{{item.priceStr}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if isAuthenticated %}
+    {% if board.id == 1 or level > 1%}
+    <button class="board-write" onclick="location.href='/write/4'">글쓰기</button>
+    {% endif %}
+    {% endif %}
+    <div class="page-wrapper">
+        {% if searchItem != "" %}
+            {% set searchQuery = "?search=" + searchItem %}
+        {% endif %}
+        {% for page in pages %}
+                {% if page == pageNumber %}
+                   {% set selected = ' selected-page' %}
+                {% else %}
+                   {% set selected = '' %}
+                {% endif %}
+        <button class="page-button{{selected}}" onclick="location.href='/productBoard/{{page}}{{searchQuery}}'">{{page}}</button>
+        {% endfor %}
+    </div>
+</section>
+{% include "aside.html"%}
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="/js/productBoard.js"></script>
+{% endblock %}
+
+

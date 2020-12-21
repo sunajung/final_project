@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+.post-section {
+    background-color: rgba(0,0,0,0);
+    margin: 0 auto;
+    width: 950px;
+    min-width: 700px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+}
+.pheader {
+    width: 100%;
+    text-align: center;
+}
+.pheader> h3 {
+    padding-top: 50px;
+    width: 100px;
+	font-family: 'Sunflower', sans-serif;
+    background-color: white;
+    border-bottom: 3px solid rgb(230, 214, 197);
+	color: rgb(59, 57, 57);
+	display: inline-block;
+	font-size: 25px;
+}
+
+.post-header{
+    width:100%;
+    padding-top:30px;
+    height:110px;
+    position:relative;
+}
+.post-header-right{
+    position:absolute;
+    right:20px;
+    bottom:5px;
+}
+.post-header{
+    border-bottom :2px solid rgb(230, 214, 197);
+}
+
+.post-title{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.post-date{
+    margin-right: 10px;
+}
+.post-comment-section {
+    width: 100%;
+    border-bottom: 2px solid rgb(230, 214, 197);
+    border-top: 2px solid rgb(230, 214, 197);
+    margin: 20px 0 5px 0;
+}
+
+post-comment-section > h4{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+.post-like{
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+.post-dolike{
+    cursor:pointer;
+    color: white;
+    background-color: rosybrown;
+    border:none;
+}
+
+.comment-header{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+.date{
+    color:rgb(116, 109, 109);
+    margin-left: 10px;
+    font-size: 13px;
+}
+.comment-content{
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(230, 214, 197);
+}
+.comment-input {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 100%;
+    border-top: 2px solid rgb(230, 214, 197);
+}
+.comment-input textarea {
+    width: 100%;
+    height:80px;
+}
+.comment-input button {
+    float: right;
+}
+.goto-list {
+    float: right;
+    margin-top: 15px;
+}
+.post-modify, .post-delete {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.comment-write, .goto-list,
+.post-modify, .post-delete {
+    cursor: pointer;
+    color: white;
+    background-color: rosybrown;
+    border: none;
+    width: 50px;
+    height: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.comment-write{
+    width: 100px;
+}

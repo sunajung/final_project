@@ -1,0 +1,104 @@
+
+
+.product-contanier {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.product-contanier > div {
+    border-bottom: 1px solid rgb(202, 197, 197);
+}
+
+.product-contanier > h3 {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0 15px 0;
+}
+
+.product-content {
+    display: inline-block;
+    width: 295px;
+    height: 410px;
+    margin: 30px 10px 20px 10px;
+    position: relative;
+}
+
+.product-content:hover {
+    cursor: pointer;
+}
+
+.product-title {
+    width: 100%;
+    text-align: center;
+}
+
+.product-content > * {
+    position: absolute;
+}
+
+.product-content > img {
+    z-index: -99;
+    width: 100%;
+    height: 380px;
+}
+
+.product-content > .product-title {
+    padding-top: 5px;
+    margin: 0px 5px;
+    bottom: 0px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.product-content > .product-detail {
+    word-break: keep-all;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+    height: 100%;
+    color: rgba(0,0,0,0);
+    text-align: center;
+}
+
+.product-content > .product-detail > p:first-child {
+    margin-top: 60px;
+}
+
+.product-content > .product-detail:hover {
+    transition: 0.3s;
+    color: white;
+}
+
+
+
+.page-wrapper {
+    padding-top: 20px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.page-button {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: rgb(59, 57, 57);
+    cursor: pointer;
+}
+
+.board-write {
+    cursor: pointer;
+    color: white;
+    background-color: rosybrown;
+    border: none;
+    margin-top: 10px;
+    margin-left: 1470px;
+    height: 30px;
+    width: 80px;
+}
+
+.selected-page {
+    font-weight: bold;
+    color: rgb(173, 171, 171);
+}

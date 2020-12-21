@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link href="css/login.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="login-section">
+    <div class="login-container-dummy"></div>
+
+    <div class="login-container">
+        <div class="login-container-header">
+            <h3>비밀번호 확인</h3>
+            <h4>개인정보 보호를 위해 비밀번호를 한 번 더 입력해 주세요.</h4>
+        </div>
+        <form name="login" class="login-container-section" method="post">
+            <input name="password" placeholder="비밀번호" type="password" style="margin-top:40px" />
+            <div id="error-message" class="error">{{errorMessage}}</div>
+            <button class="loginbtn" type="submit">확인</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+
