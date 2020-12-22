@@ -48,7 +48,7 @@ router.get('/:board/:pageNumber', async (req, res) => {
             array[index].date = date.getHours() + ':' + minutes;
         }
         else {
-            array[index].date = date.getMonth() + ':' + date.getDate();
+            array[index].date = date.getMonth()+1 + '-' + date.getDate();
         }
     });
     
