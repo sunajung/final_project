@@ -1,269 +1,272 @@
-# **Animation Practical Page** - by suna jung
+# **Term Project - Shopping mall** - by suna jung
 ---
 <br>
 
 ## **프로젝트 설명**
 
-> transition, transform, animation에 관한 수업을 듣고 만든 실습 페이지입니다.<br>
-> 4주차 실습 페이지에 애니메이션을 활용하여 홈페이지를 업그레이드 했습니다.<br> 
-> 업데이트한 항목은 다음과 같습니다. <br>
-> - `첫 구동 시 헤더 애니메이션` : 사이트 첫 접속 시 헤더가 위에서 아래로 내려오도록 애니메이션을<br> 적용했습니다.
-> - `side menu` : nav 메뉴 중 커뮤니티, 음악정보, 공연정보를 클릭하면 각각에 해당하는 사이드 메뉴바가<br> 생깁니다.
-> - `계열사 아이콘 확대` : 12 개의 계열사 아이콘 각각에 마우스를 갖다대면 사진이 확대됩니다.
-> - `상영중 3D화` : 강의에서 배운 내용 중 3D Transform- 정육면체를 제작하여 각각의 면에 포스터를 삽입하고,<br> 여기에 애니메이션을 주어 자동으로 회전하도록 했습니다. 
-> - `개발자 사진 layer` : 개발자 사진에 마우스를 갖다대면, 아래 쌓인 이미지들이 나타납니다.
-> - `css 파일 추출` : 기존 html 코드속에 삽입되어 있는 <script></script> 을 css 파일로 모두 추출하였습니다.<br> 이 때 적용된 css는 first (4주차), second(5주차)로 나누어 기록했습니다.
+> 웹 응용 프로그래밍 수업의 Term project 입니다.<br>
+> HTML, CSS, JS, Node.js, DB연동, 인증 기능 사용, 배운 내용 외 적용 7가지를 모두 충족했습니다.<br> 
+> 상품 구매, 커뮤니티 기능이 포함된 쇼핑몰을 제작했습니다. 7가지 항목을 순서대로 설명하겠습니다. <br>
 
 <br>
 
-## **주요 코드 설명** 
+## **주요 기능 설명** 
 ---
 <br>
 
-> 업데이트한 항목들의 주요 코드를 설명해드리겠습니다.<br>
-> 크게 **`Header animation, Side menu, 계열사, 상영중, 개발자`** 로 구성됩니다. <br>
+크게 **`HTML/ CSS, 디자인, JS, Node.js, DB연동, 인증 기능 사용, 배운 내용 외 적용`** 으로 구성됩니다. <br>
 
-### **[ Header animation ]**
-
-<br>
-
-- 위에서 부터 내려오는 애니메이션을 적용했습니다.
-- 헤더에만 적용하니 side menu가 보여서, side menu가 hidden일 때 -80px에 위치하도록 수정했습니다.
-
-``` html
-<script>
-    @keyframes headerAppear{
-	from{
-	   top: -80px;
-	}
-	to{
-	   top:0px;
-	}
- }
-</script>
-```
-
-### **[ Side menu ]**
+### **[ HTML, CSS ]**
 
 <br>
 
-- 교수님이 수업시간에 알려주신 햄버거 메뉴바를 만드는 법을 응용했습니다.
-- 커뮤니티, 음악정보, 공연정보를 클릭하면 각각에 해당하는 side menu가 내려오도록 구현했습니다.<br> 이 때, 3개의 사이드바를 만들기 위해 3개의 자바 스크립트가 필요했습니다.
+- 쇼핑몰을 구현하기 위해 필요한 HTML 페이지와 각각에 대응되는 CSS를 구현했습니다.
+- 구현한 페이지는 크게 **메인화면, 로그인, 회원가입, 장바구니, 마이페이지, 비밀번호 확인, 회원정보 수정, 주소찾기(팝업), 게시판, 게시글 상세, 글쓰기, 제품 상세설명, 제품 게시판, 모델 소개**입니다.
 
-``` javascript
-let communityHidden=true;
-      const communityButton = document.getElementsByClassName('community-button')[0];
-      const communitySideMenu = document.getElementById('communityMenu');
-      
-      communityButton.addEventListener('click',(event)=>{
-         if(communityHidden){
-            communitySideMenu.classList.remove('hidden');
-            musicinfoSideMenu.classList.add('hidden');
-            showinfoSideMenu.classList.add('hidden');
-            communityHidden=false;
-            musicinfoHidden=true;
-            showinfoHidden=true;
-         }
-         else{
-            communitySideMenu.classList.add('hidden');
-            communityHidden=true;
-         }
-      });
-      
-      let musicinfoHidden=true;
-      const musicinfoButton = document.getElementsByClassName('musicinfo-button')[0];
-      const musicinfoSideMenu = document.getElementById('musicinfoMenu');
-      
-      musicinfoButton.addEventListener('click',(event)=>{
-         if(musicinfoHidden){
-            musicinfoSideMenu.classList.remove('hidden');
-            communitySideMenu.classList.add('hidden');
-            showinfoSideMenu.classList.add('hidden');
-            musicinfoHidden=false;
-            communityHidden=true;
-            showinfoHidden=true;
-         }
-         else{
-            musicinfoSideMenu.classList.add('hidden');
-            musicinfoHidden=true;
-         }
-      });
-      
-      let showinfoHidden=true;
-      const showinfoButton = document.getElementsByClassName('showinfo-button')[0];
-      const showinfoSideMenu = document.getElementById('showinfoMenu');
-      
-      showinfoButton.addEventListener('click',(event)=>{
-         if(showinfoHidden){
-            showinfoSideMenu.classList.remove('hidden');
-            communitySideMenu.classList.add('hidden');
-            musicinfoSideMenu.classList.add('hidden');
-            showinfoHidden=false;
-            communityHidden=true;
-            musicinfoHidden=true;
-         }
-         else{
-            showinfoSideMenu.classList.add('hidden');
-            showinfoHidden=true;
-         }
-      });
-```
+### **[ 웹페이지 디자인 ]**
 
--  <응용> 으로 알려주셨던 코드를 붙여넣기하여, 각각의 side bar에 한개씩 총 3개를 붙여넣었습니다.<br> 여러번 본 끝에 이해한 바로는 hidden 속성이 있으면 안보인다는 것이기 때문에, hidden 속성이 있을 때 클릭했다면 hidden을 제거하여 보이도록, 없을 때 클릭했다면 hidden을 추가해 안보이도록 하는 자바스크립트 코드라고 이해했습니다.<br><br> 따라서 이를 응용해 menu를 3개로 늘리고, 한개의 menu에 hidden 속성이 제거될 때. 즉 보일 때 나머지는 추가하여 안보이도록, 한개의 menu에 hidden 속성이 추가될 때. 즉 안보일 때 hidden 값에 true를 주도록 하여 코드를 구성했습니다.  
+<br>
 
-- cubic-bezier(0.0, 0.0, 0.1, 1.0)를 통해 side menu가 내려오는 속도를 조절했습니다. <br>
+- 애견용품 판매점, 각종 커뮤니티, 쿠팡사이트를 참고해서 쇼핑몰에 필요한 기능을 선정했고, 여성 의류 쇼핑몰 사이트를 참고하여 디자인의 방향성을 잡았습니다.
+- 감성적인 느낌을 주기 위해 연한 회색, 베이지, 분홍색 컬러를 중점으로 디자인했고, 각각의 요소들의 비율을 맞춰 제작했습니다.
 
-- 이외에도 미적요소를 위해 테두리를 추가하고, 호버됐을 경우 배경색이 바뀌도록 해주었습니다.
+### **[ javascript를 사용하여 웹페이지를 구현 ]**
 
+<br>
+
+JS가 적용된 주요 부분을 소개하겠습니다.
+
+#### __1. 공통- 헤더의 큰 범주 클릭 시 하위메뉴 드롭다운__
+<br>
+
+- 드롭다운을 위해, 하위메뉴 div의 class에 “hidden”값을 추가했습니다. 
+- 큰 범주(커뮤니티, 상품 판매, 모델 소식 버튼) 각각에 click event listener를 등록하여, class에 hidden이 있다면 그대로, hidden이 없다면 하위메뉴가 밑으로 내려가 사용자에게 보이도록 구현했습니다. <br>
+
+
+#### __2) 장바구니, 즉시 구매 클릭 시 로그인 여부 판별 및 해당 기능 수행__
+<br>
+
+- 장바구니, 즉시 구매 버튼에 click event listener를 각각 등록했습니다. 
+- 먼저 로그인 여부를 판별하고, 비로그인 상태일 시 실패 메시지와 함께 함수는 종료됩니다. 
+- 로그인 상태라면 fetch함수를 이용하여 post형식의 요청을 보내고, 서버에서 요청을 수행하게 되면 result값을 받아와 성공 시 성공 메시지를, 실패 시 실패 메시지를 띄웁니다.<br>
+
+#### __3) 메인 : 광고(배너) 자동 변경 및 클릭시 페이지 이동__
+<br>
+
+- 배너의 하단 버튼에 click event listener를 등록하여 각 버튼 클릭 시 버튼에 해당하는 배경의 class를 배너에 교체해줍니다.
+- 지난 시간을 저장하는 counter변수를 timer로 이용해서, 3초마다 배너가 바뀌도록 구현했습니다.
+- page url을 계산하고, location.href를 이용하여 배너 클릭시 현재 보이는 배너의 게시글로 이동합니다. <br>
+
+#### __4) 메인 : 회원가입, 회원정보 변경__
+<br>
+
+- 각 항목 적절성 여부 체크
+	- 회원가입 form에 submit event listener를 등록하여 각 항목의 값을 읽게 했습니다. 필수입력 항목이 비었거나, 각 항목들에 조건에 맞지 않는 값이 들어왔을 경우 이벤트를 중단합니다.
+
+	- `① ID`
+		- 영어와 숫자로 구성이 가능하며 최소 8자, 최대 20자를 제한으로 두고, 조건과 다를 경우 에러처리를 했습니다. 
+		- 중복체크 여부를 확인하는 isPossibleID변수를 두어 해당 ID가 이미 등록되어있는지 확인하는 로직을 추가했습니다. (fetch함수를 이용해 비동기로 처리)
+	- `② Password`
+		- 비밀번호는 길이를 측정하여 8자리 미만의 경우 에러처리를 했습니다. 
+		- 영문, 숫자, 특수문자의 조합으로 이루어지며 적어도 2가지를 사용하게 했습니다. 이때 포함 여부 확인을 위해 정규식을 사용했습니다.
+
+			``` javascript
+			var numPattern = /[0-9]/; //숫자
+			var alphabetPattern = /[a-zA-Z]/; //알파벳
+			var spePattern = /[~!@\\\#$%<>^&*\(\)]/; //특수문자
+			numPattern( str ) // str에 해당 패턴이 포함되어있는지 여부를 반환.
+			```
+
+		- input event listener를 등록하여 비밀번호의 상태에 따라 안내문이 다르게 출력되도록 구현했습니다.
+
+	- `③ 주소, 핸드폰 번호 (선택항목)`
+		- 주소, 핸드폰 번호의 경우 두 칸으로 이루어져 있습니다. 한 칸만 값이 들어있을 경우 비정상적인 입력이므로 해당 경우에는 에러처리 했습니다. 
+		- * 주소입력은 이전 과제였던 [api사용] 코드를 그대로 가져왔습니다.
+	
+<br>
+
+#### __5) 마이페이지 - 구매내역 삭제__
+<br>
+
+ - 구매내역 삭제 버튼에 click event listener를 등록, 해당 item의 pid를 서버로 보내 db에서 삭제하게 했습니다. 
+- 이때 confirm 함수를 이용하여 삭제 여부를 묻는 팝업을 뜨게 했습니다.
+
+<br>
+
+#### __6) 게시글 상세- 댓글에 아무 내용도 없을 경우 실패처리__
+<br>
+
+-  trim()함수를 사용해, 공백과 개행으로만 이루어진 댓글은 실패처리 및 경고문을 띄웁니다.
+
+<br>
+
+#### __7) 제품 게시판에서 화면 가로 크기에 따른 asdie 위치 조절__
+<br>
+
+ - aside는 fixed된 상태이므로 가로 크기에 상관없이 항상 같은 자리를 유지합니다.
+ - left = %로 조절하기엔 문제가 있었습니다. 따라서, 원하는 위치는 section의 바로 옆이므로 (화면 가로 – section가로) / 2 + section가로 = (화면 가로 + section 가로) / 2를 도출해내어 left의 값에 적용했습니다.
+
+<br>
+
+#### __8)장바구니- 제품 각각 구매, 전체 구매 구현__
+<br>
+
+ - 제품 각각의 버튼에 click event listener를 등록하여 각각의 제품의 id를 매개변수로 주었습니다. 구매 시에는 버튼의 값을 배열에 저장해, 서버에 전송하여 구매처리를 합니다.
+
+<br>
+
+#### __9)글쓰기__
+- 제목이나 내용 누락 시 실패처리
+	- 글쓰기 버튼을 눌렀을 때 제목이나 내용의 input값을 확인하여 둘중에 하나라도 비었을 경우 경고메시지와 함께 에러처리하며, 서버로 전송하지 않습니다.
+- 수정 및 삭제 기능도 구현했습니다.
 
 <br><br>
 
-### **[ 계열사 ]**
+### **[ Node.js(express)서버를 구동하여 웹페이지 구현 ]**
 
 <br>
 
-- 수업 중 배운 [사진첩] 처럼, 계열사에 마우스를 호버했을 때 커지는 애니메이션을 추가했습니다.
+nodejs, npm express를 차례로 설치하여 서버를 구동했습니다. nodemon을 install하여 파일 변경시마다 자동으로 서버를 reboot할 수 있게 했습니다.
 
-``` html
-<style>
- .container :hover{
-	transition:1s;
-	transform:tranlate(-20,-20);
-	transform:scale(1.1, 1.1);
-	border:1px solid #eaeaea;
- }
-</style>
-```
+<br>
 
-- 축을 -20, -20으로 고정하여 가운데부터 커지도록 했고, 기존 크기보다 1.1배 커지게 transform을 적용했습니다.
+#### __1) multer 패키지 : 이미지 업로드를 위한 패키지__
+- 수업 시간에 배우지 않은 패키지로, 파일을 입력받아 처리할 수 있는 패키지입니다. 
+- 글쓰기를 구현할때 이미지 등록을 위해 사용했습니다.
+<br>
+
+#### __2) nunjuck tag사용__
+html에 적절한 태그를 통해 서버에서 내려준 값을 파싱합니다.
+
+- `① for tag 사용`
+	- 게시글, 상품 게시판, 구매내역 등 개수가 많고 반복해서 html을 작성해야 하는 경우 사용한 태그입니다.
+
+- `② if tag 사용`
+	- 수업 자료에서는 isAuthenticated를 통해 인증여부에 따라 다른 html을 표현하기 위해 쓰였습니다.
+	- 이를 응용해서, 글 상세 화면에서 글쓴이와 현재 세션의 유저를 비교해 같을 경우에만 수정, 삭제버튼이 나타나게 추가로 적용했습니다. 또한, 각각의 유저에게 레벨을 두어 레벨 2이상(운영자)의 경우 글쓴이와 상관 없이 버튼이 나타나게 했습니다.
+
+- `③ include tag 사용`
+	- extend와 다르게 해당하는 html의 내용을 전부 가져옵니다. aside가 메인화면, 제품 게시판에만 등장하므로 이를 쉽게 구현하기 위해 사용했습니다.
+
+- `④ set tag 사용`
+	- if tag와 연계하여 조건에 따라 다르게 적용해야 하는 값을 저장할 때 사용했습니다. 
+
+	- 다음은 현재 페이지와 표시하려는 페이지가 같으면 seleted-page가 되고, 미리 작성해둔 css에 의해 다르게 표시되는 코드입니다.
+
+		``` javascript
+		{% if page == pageNumber %}
+    		{% set selected = ' selected-page' %}
+		{% else %}
+    		{% set selected = '' %}
+		{% endif %}
+		<button class="page-button{{selected}}" 
+		```
+<br>
+
+#### __3) 서버와 상호작용 필요한 로직들__
+ 
+  url에 따라 작성하겠습니다. (ex) /detail/:pid => https://아이피:포트/detail/2, pid는 2에 해당
+
+- `① 제품 상세 ( /detail )`
+	- `⑴ GET /:pid` : pid에 해당하는 제품의 정보를 db에서 가져와 뿌려줍니다. 이때 최근 본 목록을 구현하기 위해 cookie[‘looking’]에 해당하는 pid값이 있는지 확인 후, 없을 경우 담아주었습니다. 
+
+	- `⑵ POST /` : 장바구니 담기 기능이 구현되어 있습니다. req.body에서 pid 값을 읽어와cookie[‘shopping’]에 추가합니다.
+
+- `② 구매 ( /buy )`
+	- `⑴ POST /` : body에서 items를 읽어와 각각의 item에 대해 구매처리를 진행합니다. 구매와 동시에 장바구니( cookie[‘shopping’] ) 에서 제거됩니다.
+
+- `③게시판( /board )`
+	- `⑴ GET /`:board/:pageNumber : 해당하는 조건의 데이터를 DB에서 검색한 후, 원하는 개수만큼 잘라 응답으로 전송했습니다. (sort, skip, limit을 사용)
 <br><br>
 
-### **[ 상영중 ]**
+### **[ DB를 연동하여 웹 페이지 구현 ]**
 
 <br>
+	사용한 collection은 총 9가지로 아래와 같습니다.
+<br>
 
-- 수업 중에 배운 코드를 활용하여 정육면체를 구성하고, 각각의 면에 이미지를 채워넣었습니다.
-- 원하는 각도만큼 회전시키기 위해 아래와 같은 keyframes을 삽입하였습니다.
-
-``` html
-<style>
-@keyframes rollingPoster{
-	from{}
-	8%{
-	   transform:rotateX(86deg) rotateZ(-4deg) ;
-	}
-	16%{
-	   transform:rotateX(86deg)  rotateZ(-4deg) ;
-	}
-	24%{
-	   transform:rotateX(86deg) rotateZ(86deg);
-	}
-	32%{
-	   transform:rotateX(86deg) rotateZ(86deg);
-	}
-	41%{
-	   transform:rotateX(86deg) rotateZ(86deg) rotateY(-90deg);
-	}
-	50%{
-	   transform:rotateX(86deg) rotateZ(86deg) rotateY(-90deg);
-	}
-	58%{
-	   transform:rotateX(86deg) rotateZ(176deg) rotateY(-90deg);
-	}
-	66%{
-	   transform:rotateX(86deg) rotateZ(176deg) rotateY(-90deg);
-	}
-	74%{
-	   transform:rotateX(176deg) rotateZ(180deg) rotateY(-86deg);
-	}
-	82%{
-	   transform:rotateX(176deg) rotateZ(180deg) rotateY(-86deg);
-	}
-	91%{
-	   transform:rotateX(176deg) rotateZ(180deg) rotateY(-176deg);
-	}
-	to{
-	   transform:rotateX(176deg) rotateZ(180deg) rotateY(-176deg);
-	}
- }
-</style>
-```
+- `① users (사용자 정보)`
+	: Id, password(가상), hashedPassword, address, detailAddress, fullAddress(가상, 주소 합쳐서 저장), phone1, phone2, phone3, phone(가상, 전화번호 합쳐서 저장)
+- `② usercounters (현재 유저 수를 저장)` : count
+- `③ boards (게시판 종류)` : pid, boardName
+- `④ posts (게시글 정보)` 
+	: pid, title, content, writer, view, idPerBoard(게시글 마다 독립적인 번호체계를 활용하기 위함), like, createdAt, updatedAt.
+- `⑤ postcounters (각 게시판 글 수 카운팅 및 넘버링 위함)` : board, count
+- `⑥ likes (좋아요 누른 사람과 누른 게시물)` : liker, post
+- `⑦ comments (댓글 정보)` : content, writer, post
+- `⑧ buys (구매 정보)` : buyer, product
+- `⑨ product (제품 정보)` 
+	: pid, name, title, titlePrefix(부제 개념), price, detail(상세설명 페이지에 들어가는 내용)
 
 - 처음에는 입체적 요소를 생각하지 않고 90도씩 회전하는 것을 목표로 일일이 구성한 뒤,<br> 큐브 모양을 생각해 입체모양을 생기도록 +- 4도씩을 해주었습니다.
 <br><br>
 
-### **[ 개발자 ]**
+### **[ 인증 기능 사용 여부 ]**
 
 <br>
 
-- 이미지 크기를 profile-img-wrapper로 잡아준 뒤, 그 공간만큼 텍스트를 밀어내게했습니다.
-- profile 자식요소 2,3에 z-index를 뒤로갈수록 작게 설정해주었고 각각의 위치를 %로 적용했습니다.
-- 마우스가 호버되면 width가 커지게 되어, 겹쳐있다가 퍼지는 것처럼 보이는 효과를 주었습니다.
+- 로그인 구현 - 12주차 강의자료의 예제를 활용하여 login을 구현했습니다. 예제와 동일하게 password는 virtual 속성을 주었고, 진짜 비밀번호는 hashedPassword에 암호화되어 저장됩니다.
 
-``` html
-<style>
-.profile-img-wrapper{
-	float:left;
-	position:relative;
-	width:300px;
-	height:250px;
-	
-}
-.img-wrapper{
-	position:absolute;
-	width:30px;
-	transition:0.5s;
-}
-.img-wrapper:hover{
-	width:800px;
-	transition:0.5s;
-}
-.profile{
-	position:absolute;
-	z-index:3;
-}
-.profile:nth-child(2){
-	left:35%;
-	z-index:2;
-}
-.profile:nth-child(3){
-	z-index:1;
-	left:70%;
-}
-</style>
-```
+<br><br>
+
+### **[ 기타 강의시간에 배운 내용 외의 내용을 적용한 경우 ]**
+
+<br>
+
+#### 1) 도전과제 달성!
+ 
+- 도전 과제인 등록한 게시글이 나열되는 영역, 게시글을 등록하는 폼을 제작했습니다. 여기에 추가로, 게시글 나열 영역은 페이지네이션을, 게시글 등록 폼은 이미지와 영상 추가도 가능하도록 제작했습니다. 
+
+<br>
+
+#### 2) mongoDB compass 이용하여 csv형태의 자료를 집어넣었습니다.
+
+<br> 
+
+#### 3) 글쓰기 에디터 opensource 이용
+ 
+- summernote를 활용하여 글쓰기 기능을 일반적인 커뮤니티의 글쓰기처럼 만들었습니다.
+
+- 이미지 업로드는 콜백을 등록하여 서버에 이미지를 전송하는 이벤트 발생 시, 응답으로 전송된 url의 서버 주소를 받아와 게시글에 적절한 img 태그 및 src속성을 부여하여 표현했습니다. 
+
+<br> 
+
+#### 4) javascript를 이용하여 css에 직접 접근
+ 
+- aside위치 조정에 사용했던 방법으로. getElementsByClassName등의 emement 검색 함수를 이용하여 변수에 담고, element.style 내부의 값에 원하는 값을 대입하여 사용했습니다.
+
+<br> 
+
+#### 5) 게시물 및 상품 검색 기능 추가
+ 
+- 사이트의 헤더에서 검색 시 상품 검색이 가능하고, 해당 게시판 밑의 검색창에서 검색하면 게시판에 있는 글 중에서 검색이 가능합니다.
+
+#### 6) 강의시간에 배운내용에서 모두 심화된내용을 적용.
+ 
+- 단순히 표면적으로 배운 내용외에, 해당 내용을 구글링하고 직접 적용해보는 시행착오를 거쳐 실제 사이트와 유사한 퀄리티로 사이트를 제작했습니다.
+
 <br><br>
 
 
 ## **비고 및 고찰** 
 ---
 <br>
-배운 내용을 모두 적용하려고 하다보니 고민이 많았습니다. 배운걸 모두 적용하면서, 사이트의 미관도 해치지 않아야 했기 때문에 어떤 요소들을 추가 할 지 결정하는데만 며칠을 고민했습니다.  <br><br>
-특히 3D Transform의 경우 어떻게 이용해야 사이트의 미관을 업그레이드하면서도 적용시킬 수 있을지 고민하다가,<br>큐브모양으로 상영중을 표시하면 괜찮겠단 생각이 들어 제작했는데, 결과물이 만족스러워 좋았습니다 :)
+이왕 사이트를 만드는 거, 제대로 만들어보자는 생각이 들어서 구매와 커뮤니티 기능을 모두 포함한 쇼핑몰에 도전했습니다.<br> 디테일에 신경쓰다보니 1주간 거의 밤을새며 제작했을정도로 작업이 길어졌습니다. 이번 프로젝트를 진행하며 셀 수도 없이 많은 오류를 보게 되었는데, 그만큼 실력이 많이 는 것 같아 뿌듯합니다.
 <br><br>
-애니메이션을 추가하는 것 자체는 어렵지 않았지만, 이를 응용 및 결합하여 사용할 때 고민한 문제가 몇가지 있었습니다. 자세한 사항은 다음과 같습니다!. <br><br>
+제작을 하면서 만난 숱한 문제중 주요적인 것은 다음과 같습니다.
+<br><br>
 
 ### **제작 시 주요사항** <br>
 
-**1. 사이드 메뉴 제작 시 스크립트가 3개 필요함.** <br>
-=> 강의 시간에 배운 햄버거 메뉴를 응용해서, 각각 메뉴를 클릭했을 때 하위 메뉴가 나오도록 구성하고 싶었습니다. '커뮤니티' 메뉴 한 개에 적용하는 것 자체는 쉬웠으나, 3개의 메뉴에 각각 적용하려고하니 스크립트가 3개 필요하다는 것을 깨달았습니다.<br><br> 자바스크립트를 배워본 적이 없어서 어렵고 다소 해맸으나, 결국 hidden을 3개로 나누고 복사-붙여넣기하여 한 요소가 hidden을 추가할 때 나머지를 제거하는 식으로 코드를 짜니, 생각한대로 작동했습니다.
+**1. 배너 클릭 시 해당하는 이벤트 페이지로 이동** <br>
+=> 현재 제가 제작한 사이트는 banner에 해당하는 div를 하나만 쓰고 background image를 돌려쓰는 방식을 사용중입니다. click event listener 또한 하나만 사용할 수 있었으며, 이동해야하는 이벤트 페이지는 배너 개수만큼 되므로 html내의 onclick으로는 커버할 수 없었습니다. 이를 어떻게 할지 많은 고민 끝에, click event listener에서 nowBanner 값을 보고 이동해야 하는 page url을 그때 계산하게 하고, location.href를 이용하여 현재 보여지는 배너의 게시글로 이동하게 제작했습니다.
 
-**2. 정육면체 보이는 각도 조절** <br>
-=> 강의에서 알려주신 대로 정육면체는 제작했으나, 큐브 형식으로 입체감있게 보여지길 원했습니다.<br> 원하는대로 x, y, z축을 조절하기 위해 머릿속으로 시뮬레이션도 많이 돌려보고 테스트도 많이해서 최적의 각도를 찾아냈습니다.
+**2. multer 패키지( 이미지 업로드를 위한 패키지)** <br>
+=> 이미지를 등록하면 <img>태그가 자동으로 적용되어 이미지를 첨부할 수 있었는데, 문제는 local 환경에서 올린 이미지다 보니 서버에 해당 태그가 그대로 올라가면 이미지를 찾지 못해 표시를 하지 못하는 문제가 발생했습니다. 
+<br><br> 이를 방지하기 위해 이미지 게시 시에 서버에 해당 이미지 파일을 전송한 후, 서버기준으로 해당 이미지 파일의 url을 다시 응답으로 전송하여 해당 url을 src의 value값으로 사용했습니다. 서버에 있는 이미지이므로 다른 유저가 보더라도 이미지가 정상적으로 보이게 되어, 원활한 처리가 가능했습니다.
 
-**3. 정육면체에 애니메이션 추가.** <br>
-=> 정육면체가 자연스럽게 움직이면서 상영중인 포스터를 보여주면 미적으로 좋을 것 같다는 생각이 들어, 정육면체에 ` @keyframes rollingPoster `를 적용했습니다. 8% 범위에 맞추어 애니메이션을 추가하였더니, 적당한 속도로 보여지기가 가능했습니다.
+**3. javescript 부모요소 클릭 이벤트 차단** <br>
+=> 배너 아래 버튼 클릭 시 배너 사진이 변경되는 것을 구현할 때, 자식 element에 클릭 이벤트가 일어날 경우, 부모가 겹쳐있다면 부모 또한 클릭 이벤트를 받게 되는 현상을 발견했습니다. 이때 사진이 바뀌기도 전에 이벤트페이지로 넘어가는 문제가 생겼습니다.<br><br>
+ e.stopPropagation(); 함수를 이용하면 더 이상 이벤트가 전파되지 않고 해당 엘리먼트에서 멈춰서, 클릭 이벤트 진행 시 해당 함수를 호출하는 것으로 해결했습니다.
 
-**4. 애니메이션, z-index 응용 - 사진 layer 만들기.** <br>
-=> 사진을 쌓아놓고, 마우스를 올렸을 때 옆으로 퍼지게 만들고 싶었습니다. 우선 z-index를 이용해 순서대로 쌓이게했는데, 이를 어떻게 겹칠지 고민을 많이했습니다. 스크립트를 사용하지 않고 가능할까에대해 많은 생각을 하다가, 문득 absolute 속성이 생각났습니다.<br><br> 위치를 %로 지정해놓고, 처음 크기를 작게 잡은 후 마우스가 호버 되었을 때 너비자체를 늘려버리면, %대로 위치하기 때문에 원하는 장소에 위치시킬 수 있을 거란 생각이 들었고, 몇번의 시도 끝에 30px -> 800px 정도 변환하면 원하는 만큼의 애니메이션이 이루어진다는 사실을 알게되었습니다.
-
-
-<br><br>
-
-## **Java Script를 배우고 추가하고 싶은 요소들** 
----
-<br>
-이번 사이트 제작 시 떠오른 아이디어지만, 아직 스크립트를 배우지 않아 아이디어로만 남긴 부분입니다. 이 부분들은 다음 수업을 배우고 업데이트 하려고 합니다. <br><br>
-
-> - 사이트 내 이스터에그 추가 ( 특정 행위 시 사이트가 90도 돌거나 하는 이스터에그 추가)
-> - 배너 그리드(3개짜리)에 마우스 갖다대면 해당 광고로 변하게 하기
+ 구현하고 싶은 기능과 표면적인 기술사이에 괴리가 있어서, JS로 CSS를 조정하거나 선택자를 지정하는 방법 등 다양한 부분에서 심화된 내용이 필요했습니다. 강의 PPT와 구글링을 통해서 배운 것 외, 혹은 심화내용을 직접 익히고 적용함으로써 문제들을 해결할 수 있었습니다. 또, AWS에서 제공하는 도메인 서비스를 결제해 원하는 도메인 주소로 쇼핑몰에 접근할 수 있도록 했습니다.
